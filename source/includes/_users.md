@@ -1,10 +1,14 @@
 # Users
 
+Users are the individuals that have accounts created with Makai.
+
+We use a password-less login system that utilized a users phone number and OTP for login.
+
 ## Users Table
 
 Field | Type | Null | Description
 --------- | ------- | ----------- | -----------
-**(PK) Id** | int | No | Unique Id of the user.
+**(PK) Id** | int | NotNullable | Unique Id of the user.
 **Phone** | nvarchar(50) | No | Users Phone number in E.164 format
 **Email** | nvarchar(100) | NotNullable | Users email address
 FirstName | nvarchar(100) | Nullable | Users first name
@@ -22,7 +26,7 @@ Required in **bold**
 
 ## List All Users
 
-This endpoint retrieves all users and can be paginated
+Retrieves all users and can be paginated
 
 ### HTTP Request
 
@@ -36,6 +40,8 @@ page | 1 | Which page to display
 per | nil | If set, will limit the number of users per page
 
 ## Create New User
+
+Creates a new user with the given properties
 
 >Format of the request body:
 
@@ -90,3 +96,23 @@ stripeId | string | The Stripe Id of the user
 authAccessCode | string | The Authenticating userAccessCode of the user
 
 Required in **bold**
+
+## Update a User
+
+Updates a User's information with the provided properties
+
+## Update User Status
+
+Updates a User's status
+
+## Confirm User Email
+
+Sets User's email to confirmed
+
+## Confirm User Phone
+
+Sets User's phone number to confirmed
+
+## Select User Authorizations
+
+Retrieves a User's data, along with their roles
